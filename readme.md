@@ -1,3 +1,5 @@
+#APIs for handling backend services
+
 /auth/signup    POST
     request = {name, email, password}
     response = {msg}
