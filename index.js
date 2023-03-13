@@ -6,7 +6,7 @@ const { SubTaskController } = require("./routes/subTask.route");
 const { TagController } = require("./routes/tag.route");
 const { taskController } = require("./routes/task.route");
 const { ProfileController } = require("./routes/profile.route");
-const { passport } = require("./config/google-oauth");
+
 
 const app = express();
 app.use(express.json());
@@ -15,21 +15,6 @@ app.use(cors());
 app.get("/", (req, res) => {
     res.status('200').send({msg : "Task Manager APIs Working"});
 })
-
-app.get('/auth/google',
-  passport.authenticate('google', { scope:
-      [ 'email', 'profile' ] }
-));
-
-app.get('/auth/google/callback',
-    passport.authenticate( 'google', {
-        scope: [ 'email', 'profile'],
-        session : false,
-        failureRedirect: '/login'
-}), function(req, res) {
-    console.log(req.user);
-    res.redirect("/");
-});
 
 app.use("/auth", AuthController);
 

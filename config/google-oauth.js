@@ -18,7 +18,6 @@ passport.use(new GoogleStrategy({
     // });
     const {displayName, email} = profile;
     const password = uuidv4();
-    console.log(displayName+" "+email);
     const alreadyUser = await UserModel.findOne({email});
     if(alreadyUser)
         return done(null, alreadyUser);
