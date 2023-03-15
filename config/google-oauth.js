@@ -9,7 +9,8 @@ const { UserModel } = require('../models/User.model');
 passport.use(new GoogleStrategy({
     clientID:     process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://taskmanager-backend.onrender.com/auth/google/callback",
+    // callbackURL: "https://taskmanager-backend.onrender.com/auth/google/callback",
+    callbackURL: "http://localhost:8080/auth/google/callback",
     passReqToCallback   : true
   },
   async function(request, accessToken, refreshToken, profile, done) {
